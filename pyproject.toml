@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "myphy"
+version = "0.0.1"
+authors = [
+  { name="Vishwanath Wimalasena", email="vishy235@gmail.com" },
+]
+description = "tools for data analysis"
+readme = "README.md"
+license = "MIT"
