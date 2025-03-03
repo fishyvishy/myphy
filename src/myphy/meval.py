@@ -1,6 +1,6 @@
 import numpy as np
 from myphy.mata import Mata
-from myphy.plotter import makePlot, makeResidual
+from myphy.plotter import get_plotter
 from scipy.optimize import curve_fit
 from scipy.stats import chi2
 
@@ -38,13 +38,13 @@ class Meval:
         self.perr = np.sqrt(np.diag(pcov))
         self.yfit = self.model(self.data.xdata, *self.popt)
 
-    def plotModel(self, samples=100, label="Fit", plotData=True):
+    def plot_model(self, samples=100, label="Fit", plotData=True):
         x, y, yerr, xerr = self.data.unpack()
         xspace = np.linspace(np.min(x), np.max(x), samples)
         yfit = self.model(xspace, *self.popt)
-        makePlot(xspace, yfit, label=label)
+        get_plotter().make_plot(xspace, yfit, label=label)
         if plotData:
-            self.data.plotData("Data")
+            self.data.plot_data("Data")
 
     def stats(self):
         """
@@ -64,6 +64,6 @@ class Meval:
         residuals = self.data.ydata - self.yfit
         return residuals
 
-    def plotResiduals(self):
+    def plot_residuals(self):
         x, y, yerr, xerr = self.data.unpack()
-        makeResidual(x, self.residuals(), yerr, xerr)
+        get_plotter().make_residual(x, self.residuals(), yerr, xerr)

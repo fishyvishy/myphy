@@ -1,5 +1,5 @@
 import numpy as np
-from myphy.plotter import makeErrorbar
+from myphy.plotter import get_plotter
 
 
 class Mata:
@@ -76,8 +76,9 @@ class Mata:
     def unpack(self):
         return self.xdata, self.ydata, self.yerr, self.xerr
 
-    def plotData(self, label="Data"):
-        makeErrorbar(*self.unpack(), label=label)
+    def plot_data(self, label="Data"):
+        Plotter = get_plotter()
+        Plotter.make_errorbar(*self.unpack(), label=label)
 
     def __repr__(self):
         out_dict = {"xdata": self.xdata, "ydata": self.ydata, "yerr": self.yerr}

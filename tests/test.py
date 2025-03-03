@@ -12,7 +12,7 @@ xu = np.random.rand(x.shape[0]) / 100
 
 mata = Mata(x, y, yu, xu)
 
-mata.plotData()
+mata.plot_data()
 plt.legend()
 plt.show()
 
@@ -24,11 +24,11 @@ def mysin(x, A):
 sinfit = Meval(mysin, mata)
 sinfit.fit((1))
 
-sinfit.plotModel()
+sinfit.plot_model()
 plt.legend()
 plt.show()
 
-sinfit.plotResiduals()
+sinfit.plot_residuals()
 plt.show()
 
 
