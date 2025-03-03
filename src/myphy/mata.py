@@ -77,8 +77,7 @@ class Mata:
         return self.xdata, self.ydata, self.yerr, self.xerr
 
     def plot_data(self, label="Data"):
-        Plotter = get_plotter()
-        Plotter.make_errorbar(*self.unpack(), label=label)
+        get_plotter().make_errorbar(*self.unpack(), label=label)
 
     def __repr__(self):
         out_dict = {"xdata": self.xdata, "ydata": self.ydata, "yerr": self.yerr}

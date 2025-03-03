@@ -25,8 +25,18 @@ class DefaultPlotter(BasePlotter):
         plt.plot(x, y, label=label)
 
     def make_errorbar(self, x, y, yerr, xerr, label):
-        plt.errorbar(x, y, xerr=xerr, yerr=yerr, fmt=".", label=label)
+        plt.errorbar(
+            x,
+            y,
+            xerr=xerr,
+            yerr=yerr,
+            fmt=".",
+            label=label,
+            elinewidth=1.3,
+            ecolor="lightblue",
+            capsize=1,
+        )
 
     def make_residual(self, x, y, yerr, xerr):
         self.make_errorbar(x, y, yerr, xerr, label=None)
-        plt.axhline(0, color="black", linestyle="--")
+        plt.axhline(0, color="red", linestyle="--")
